@@ -69,7 +69,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>G:\studia\semestr 6\sztuczna_inteligencja_i_inzynieria_wiedzy\lab\lab2\csp_futo_sky\csp_futo_sky\src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>G:\studia\semestr 6\sztuczna_inteligencja_i_inzynieria_wiedzy\lab\lab2\csp_futo_sky\csp_futo_sky\src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -80,10 +85,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>G:\studia\semestr 6\sztuczna_inteligencja_i_inzynieria_wiedzy\lab\lab2\csp_futo_sky\csp_futo_sky\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -102,12 +110,15 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>G:\studia\semestr 6\sztuczna_inteligencja_i_inzynieria_wiedzy\lab\lab2\csp_futo_sky\csp_futo_sky\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -115,6 +126,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\csp\CspContext.hpp" />
+    <ClInclude Include="src\loader\ConfigParsingException.hpp" />
+    <ClInclude Include="src\configuration\FutoInstanceConfig.hpp" />
+    <ClInclude Include="src\csp\constraints\BinaryConstraint.hpp" />
+    <ClInclude Include="src\csp\constraints\Constraint.hpp" />
+    <ClInclude Include="src\csp\constraints\ConstraintsContainer.hpp" />
+    <ClInclude Include="src\csp\VaraibleDomain.hpp" />
+    <ClInclude Include="src\csp\Variable.hpp" />
+    <ClInclude Include="src\futoshiki\FutoshikiBoard.hpp" />
+    <ClInclude Include="src\loader\FutoInstanceLoader.hpp" />
+    <ClInclude Include="src\utils\StringUtils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\csp\constraints\Constraint.cpp" />
+    <ClCompile Include="src\csp\constraints\ConstraintsContainer.cpp" />
+    <ClCompile Include="src\futoshiki\FutoshikiBoard.cpp" />
+    <ClCompile Include="src\loader\FutoInstanceLoader.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\utils\StringUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
