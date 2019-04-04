@@ -21,9 +21,6 @@
     <ClInclude Include="src\futoshiki\FutoshikiBoard.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\csp\Variable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\csp\constraints\Constraint.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -31,9 +28,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\csp\constraints\ConstraintsContainer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\csp\VaraibleDomain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\loader\ConfigParsingException.hpp">
@@ -48,14 +42,20 @@
     <ClInclude Include="src\loader\FutoInstanceLoader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\csp\algorithm\Backtracking.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csp\variables\VaraibleDomain.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csp\variables\Variable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csp\constraints\MultiConstraint.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\csp\constraints\Constraint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\csp\constraints\ConstraintsContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\utils\StringUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

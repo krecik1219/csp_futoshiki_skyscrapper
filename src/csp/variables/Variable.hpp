@@ -12,9 +12,9 @@ class Variable
 {
 public:
 	Variable(const std::string& variableName, const VariableDomain<ValueType>& domain, const ValueType& value);
-	virtual ~Variable() = default;
+	virtual ~Variable();
 
-	Variable(const Variable&) = delete;
+	Variable(const Variable&);
 	Variable& operator=(const Variable&) = delete;
 	Variable(Variable&&) = delete;
 	Variable& operator=(Variable&&) = delete;
@@ -23,6 +23,9 @@ public:
 	const std::string& getName() const;
 	const ValueType& getValue() const;
 	void setValue(const ValueType& value);
+	const VariableDomain<ValueType>& getDomain() const;
+	bool isAssigned() const;
+	void reset();
 
 private:
 	const std::string variableName;
@@ -39,13 +42,19 @@ Variable<ValueType>::Variable(const std::string& variableName, const VariableDom
 }
 
 template<class ValueType>
+Variable<ValueType>::~Variable() = default;
+
+template<class ValueType>
+Variable<ValueType>::Variable(const Variable&) = default;
+
+template<class ValueType>
 bool Variable<ValueType>::operator==(const Variable& other)
 {
 	return variableName == other.variableName && domain == other.domain && value == other.value;
 }
 
 template<class ValueType>
-const std::string & Variable<ValueType>::getName() const
+const std::string& Variable<ValueType>::getName() const
 {
 	return variableName;
 }
@@ -57,9 +66,27 @@ const ValueType& Variable<ValueType>::getValue() const
 }
 
 template<class ValueType>
-void Variable<ValueType>::setValue(const ValueType& value)
+void Variable<ValueType>::setValue(const ValueType& newValue)
 {
-	this->value = value;
+	value = newValue;
+}
+
+template<class ValueType>
+const VariableDomain<ValueType>& Variable<ValueType>::getDomain() const
+{
+	return domain;
+}
+
+template<class ValueType>
+bool Variable<ValueType>::isAssigned() const
+{
+	return value != ValueType{};
+}
+
+template<class ValueType>
+void Variable<ValueType>::reset()
+{
+	value = ValueType{};
 }
 
 } // namespace csp

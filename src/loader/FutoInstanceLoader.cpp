@@ -7,8 +7,8 @@
 
 #include "ConfigParsingException.hpp"
 #include <utils/StringUtils.hpp>
-#include <csp/VaraibleDomain.hpp>
-#include <csp/Variable.hpp>
+#include <csp/Variables/VaraibleDomain.hpp>
+#include <csp/Variables/Variable.hpp>
 #include <csp/constraints/BinaryConstraint.hpp>
 #include <csp/CspContext.hpp>
 
@@ -23,7 +23,7 @@ csp::futo::FutoshikiBoard FutoInstanceLoader::loadFutoInstanceConfig(const std::
 
 	std::vector<std::string> initialStateStrings;
 	bool wasInitialStateParsed = false;
-	std::vector<std::unique_ptr<csp::Constraint>> constraintsVec;
+	std::vector<std::unique_ptr<csp::Constraint<int32_t>>> constraintsVec;
 	config::FutoInstanceConfig futoInstanceConfig;
 	std::string line;
 	ReadingType readingType = ReadingType::instanceSize;
@@ -39,7 +39,7 @@ csp::futo::FutoshikiBoard FutoInstanceLoader::loadFutoInstanceConfig(const std::
 
 void FutoInstanceLoader::decideWhatToDoWithLine(const std::string& line, ReadingType& readingType,
 	config::FutoInstanceConfig& futoInstanceConfig, std::vector<std::string>& initialStateStrings,
-	bool& wasInitialStateParsed, std::vector<std::unique_ptr<csp::Constraint>>& constraintsVec) const
+	bool& wasInitialStateParsed, std::vector<std::unique_ptr<csp::Constraint<int32_t>>>& constraintsVec) const
 {
 	if (line.find("START:") != std::string::npos)
 	{
@@ -125,7 +125,7 @@ void FutoInstanceLoader::parseInitialState(std::vector<std::string>& initialStat
 }
 
 void FutoInstanceLoader::readConstraint(const std::string& line, config::FutoInstanceConfig& futoInstanceConfig,
-	std::vector<std::unique_ptr<csp::Constraint>>& constraintsVec) const
+	std::vector<std::unique_ptr<csp::Constraint<int32_t>>>& constraintsVec) const
 {
 	const auto splittedStr = utils::str::split(line, ';');
 	if (splittedStr.size() != 2)

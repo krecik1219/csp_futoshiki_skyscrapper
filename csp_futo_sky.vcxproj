@@ -126,21 +126,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\csp\algorithm\Backtracking.hpp" />
+    <ClInclude Include="src\csp\constraints\MultiConstraint.hpp" />
     <ClInclude Include="src\csp\CspContext.hpp" />
     <ClInclude Include="src\loader\ConfigParsingException.hpp" />
     <ClInclude Include="src\configuration\FutoInstanceConfig.hpp" />
     <ClInclude Include="src\csp\constraints\BinaryConstraint.hpp" />
     <ClInclude Include="src\csp\constraints\Constraint.hpp" />
     <ClInclude Include="src\csp\constraints\ConstraintsContainer.hpp" />
-    <ClInclude Include="src\csp\VaraibleDomain.hpp" />
-    <ClInclude Include="src\csp\Variable.hpp" />
+    <ClInclude Include="src\csp\variables\VaraibleDomain.hpp" />
+    <ClInclude Include="src\csp\variables\Variable.hpp" />
     <ClInclude Include="src\futoshiki\FutoshikiBoard.hpp" />
     <ClInclude Include="src\loader\FutoInstanceLoader.hpp" />
     <ClInclude Include="src\utils\StringUtils.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\csp\constraints\Constraint.cpp" />
-    <ClCompile Include="src\csp\constraints\ConstraintsContainer.cpp" />
     <ClCompile Include="src\futoshiki\FutoshikiBoard.cpp" />
     <ClCompile Include="src\loader\FutoInstanceLoader.cpp" />
     <ClCompile Include="src\main.cpp" />

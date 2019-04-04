@@ -13,6 +13,9 @@ int main()
 	try
 	{
 		auto futoshiki = loader.loadFutoInstanceConfig("data/test_futo_4_0.txt");
+		cout << "calling futoshiki solve" << endl;
+		futoshiki.solve();
+		cout << "futoshiki solved" << endl;
 	}
 	catch (loader::ConfigParsingException& e)
 	{
