@@ -10,6 +10,7 @@ class Backtracking
 {
 public:
 	using Var = Variable<ValueType>;
+	using Solution = std::vector<std::unique_ptr<Var>>;
 
 	Backtracking(CspContext<ValueType>& cspContext);
 
@@ -17,7 +18,7 @@ public:
 
 private:
 	CspContext<ValueType>& cspContext;
-	std::vector<std::unique_ptr<Var>> solution;
+	std::vector<Solution> solutions;
 };
 
 template<class ValueType>
@@ -33,9 +34,11 @@ void Backtracking<ValueType>::solve()
 	if (cspContext.isAssignmentComplete())
 	{
 		const auto& vars = cspContext.getVariables();
+		Solution solution;
 		solution.reserve(vars.size());
 		std::transform(vars.cbegin(), vars.cend(), std::back_inserter(solution),
 			[](const auto& v) {return std::make_unique<Variable<int32_t>>(*v); });
+		solutions.push_back(std::move(solution));
 		return;
 	}
 
@@ -56,8 +59,14 @@ void Backtracking<ValueType>::solve()
 			var->reset();
 		}
 	}
-	if(solution.empty())
-		var->reset();
+	//if(solution.empty())
+	//	var->reset();
+	var->reset();
+	if (var->getName() == "A2")
+	{
+		int x = 2;
+		x++;
+	}
 }
 
 } // namespace csp
